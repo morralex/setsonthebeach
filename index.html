@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Sniglet&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <h1>API</h1>
+    <div class="main-container-p1">
+        <p class="home-header">Night Out</p>
+        <p class="home-header-description">The Unique Dating and Hangout App</p>
+        <div class="home-btn" id="homeBtn">Start Your Night Out</div>
+    </div>
+
+    <div class="main-container-p2">
+        <form>
+            <label>What city will be your first stop in your night out?</label>
+            <input class="input-style-stop" id="firstStopLoc" type="text">
+            <div class="location-search-btn" id="locationSearchBtn">Search</div>
+        </form>
+    </div>
+
+    <div class="main-container-displayed-input"></div>
+
+
+    <script src="../javascript/script.js"></script>
 </body>
+
 </html>
