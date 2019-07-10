@@ -62,13 +62,31 @@ homeBtn.on('click', function(){
     $('.main-container-p1').hide();
     mainContainerP2.show();
     googleMapsContainer.hide();
+    
 })
 
 searchLocationBtn.on('click', function(){
     mainContainerP2.hide();
-
+    $('.main-preference-wrapper').show();
+    $('.select-preference-page').show();
     mainContainerCategories.show();
     googleMapsContainer.hide();
+
+    setTimeout(function(){
+        $('.dot-1').show();
+    },500)
+    setTimeout(function(){
+        $('.dot-2').show();
+    },1000)
+    setTimeout(function(){
+        $('.dot-3').show();
+    },1500)
+
+    setTimeout(function(){
+       
+        mainContainerCategories.show();
+        $('.select-preference-page').hide();
+    }, 2300);
     
 })
 
@@ -80,6 +98,27 @@ var arcadeBtn = $('.arcade');
 var golfBtn = $('.golf');
 var movieBtn = $('.movie');
 
+bowlingBtn.on('click', function(){
+    $('.activities-toggle-wrapper').hide();
+    googleMapsContainer.show();
+})
+racingBtn.on('click', function(){
+    $('.activities-toggle-wrapper').hide();
+    googleMapsContainer.show();
+})
+arcadeBtn.on('click', function(){
+    $('.activities-toggle-wrapper').hide();
+    googleMapsContainer.show();
+})
+golfBtn.on('click', function(){
+    $('.activities-toggle-wrapper').hide();
+    googleMapsContainer.show();
+})
+movieBtn.on('click', function(){
+    $('.activities-toggle-wrapper').hide();
+    googleMapsContainer.show();
+})
+
 // -------------food buttons---------------
 
 var mexicanBtn = $('.mexican-food');
@@ -88,6 +127,7 @@ var chineseBtn = $('.chinese-food');
 var japaneseBtn = $('.japanese-food');
 var taiBtn = $('.tai-food');
 var greekBtn = $('.greek-food');
+var americanBtn = $('.american-food')
 
 mexicanBtn.on('click', function(){
     $('.food-toggle-wrapper').hide();
@@ -95,3 +135,79 @@ mexicanBtn.on('click', function(){
     
 
 })
+italianBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+chineseBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+japaneseBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+taiBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+greekBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+americanBtn.on('click', function(){
+    $('.food-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+
+// -------------- Event Buttons --------------
+
+var concertsBtn = $('.concerts');
+var festivalsBtn = $('.festivals');
+var fairsBtn = $('.fairs');
+
+concertsBtn.on('click', function(){
+    $('.events-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+festivalsBtn.on('click', function(){
+    $('.events-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+fairsBtn.on('click', function(){
+    $('.events-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+
+// -------------- Outdoor Buttons --------------
+
+var beachesBtn = $('.beaches');
+var parksBtn = $('.parks');
+var trailsBtn = $('.trails');
+
+beachesBtn.on('click', function(){
+    $('.outdoors-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+parksBtn.on('click', function(){
+    $('.outdoors-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+trailsBtn.on('click', function(){
+    $('.outdoors-toggle-wrapper').hide();
+    googleMapsContainer.show();
+    
+})
+
+
