@@ -49,8 +49,8 @@
     }
     body{
         background:url(../images/city_medium.jpg);
-        background-repeat: no-repeat
-    
+        background-repeat: no-repeat;
+        
     } 
     .main-container-p1{
         width:100vw;
@@ -88,6 +88,7 @@
         display:flex;
         align-items: center;
         flex-direction: column;
+        
     }
     form{
         display: flex;
@@ -130,12 +131,129 @@
         margin-top:4vh;
         border-radius: .8rem;
     }
-    /* ---------------- displayed-input-page ----------------- */
-    .main-container-displayed-input{
+
+    /* ---------------- categories-page ----------------- */
+    .main-container-categories{
         width:100vw;
         height:100vh;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        background:#444;
+        opacity:.7;
+        overflow: hidden;
+        
         
     }
+    .category-btns-main{
+        width:100vw;
+        height:25%;
+        margin:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        /* margin-top:4vh; */
+        border-radius: .8rem;
+        text-align: center;
+        border-bottom:3px #ccc solid;
+        
+        
+    }
+
+    .category-btns-food{
+        width:100vw;
+        height:15.5vh;
+        margin:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        /* margin-top:4vh; */
+        border-radius: .8rem;
+        text-align: center;
+        border-bottom:3px #ccc solid;
+    }
+    .category-btns-activities{
+        width:100vw;
+        height:58.5%;
+        margin:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        /* margin-top:4vh; */
+        border-radius: .8rem;
+        text-align: center;
+        border-bottom:3px #ccc solid;
+    }
+    .category-btns-events{
+        width:100vw;
+        height:40.5%;
+        margin:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        /* margin-top:4vh; */
+        border-radius: .8rem;
+        text-align: center;
+        border-bottom:3px #ccc solid;
+    }
+    .category-btns-outdoors{
+        width:100vw;
+        height:40.5%;
+        margin:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        /* margin-top:4vh; */
+        border-radius: .8rem;
+        text-align: center;
+        border-bottom:3px #ccc solid;
+    }
+
+
+    .food-toggle-wrapper{
+       
+        /* display:none; */
+    }
+    .activities-toggle-wrapper{
+        display:none;
+    }
+    .outdoors-toggle-wrapper{
+        display:none;
+    }
+    .events-toggle-wrapper{
+        display:none;
+    }
+
+
+    /* ---------------- google maps container ----------------- */
+    .google-maps-container{
+        width:99vw;
+        height:99vh;
+        border:1vh magenta solid;
+        background:white;
+        
+    }
+    
 } 
 
 /* *{
@@ -176,4 +294,3 @@ body{
     border-radius: .8rem;
 }  */
 
-/* ---------------- p2 ----------------- */
