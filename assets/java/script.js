@@ -47,6 +47,13 @@ outdoorsBtn.on('click', function(){
     $('.outdoors-toggle-wrapper').show();
 })
 
+//-------- DATE: Today ---------
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
 
 var searchLocationBtn = $('#locationSearchBtn');
 var homeBtn = $('#homeBtn');
@@ -59,6 +66,7 @@ homeBtn.on('click', function(){
 
 searchLocationBtn.on('click', function(){
     mainContainerP2.hide();
+
     mainContainerCategories.show();
     googleMapsContainer.hide();
     
@@ -85,4 +93,5 @@ mexicanBtn.on('click', function(){
     $('.food-toggle-wrapper').hide();
     googleMapsContainer.show();
     
+
 })
