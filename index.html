@@ -8,9 +8,11 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Sniglet&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
         integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -28,10 +30,48 @@
         </form>
     </div>
 
-    <div class="main-container-displayed-input"></div>
+    <div class="main-container-categories">
+        <div class="food category-btns-main" id="foodBtn">Food</div>
+        <div class="food-toggle-wrapper">
+            <div class="mexican-food category-btns-food">Mexican</div>
+            <div class="italian-food category-btns-food">Italian</div>
+            <div class="chinese-food category-btns-food">Chinese</div>
+            <div class="japanese-food category-btns-food">Japanese</div>
+            <div class="tai-food category-btns-food">Tai</div>
+            <div class="greek-food category-btns-food">Greek</div>
+        </div>  
+
+        <div class="activities category-btns-main" id="activitiesBtn">Activities</div>
+        <div class="activities-toggle-wrapper">
+            <div class="bowling category-btns-activities">Bowling</div>
+            <div class="racing category-btns-activities">Racing</div>
+            <div class="arcades category-btns-activities">Arcade</div>
+            <div class="golf category-btns-activities">Golf</div>
+            <div class="movies category-btns-activities">Movie</div>
+        </div>
+        <div class="events category-btns-main" id="eventsBtn">Events</div>
+        <div class="events-toggle-wrapper">
+            <div class="concerts category-btns">Concerts</div>
+            <div class="festivals category-btns">Festivals</div>
+            <div class="fairs category-btns">Fairs</div>
+        </div>
+        <div class="outdoors category-btns-main" id="outdoorsBtn">Outdoors</div>
+        <div class="outdoors-toggle-wrapper">
+            <div class="beaches">Beaches</div>
+            <div class="parks">Parks</div>
+            <div class="trails">Beaches</div>
+        </div>
+
+    </div>
+
+    <!-- Displayed Chosen Categories -->
+
+    <div class="google-maps-container"></div>
 
 
     <script src="./assets/java/script.js"></script>
+
+
 </body>
 
 </html>
