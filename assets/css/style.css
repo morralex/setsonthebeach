@@ -142,9 +142,35 @@
         background:#444;
         opacity:.7;
         overflow: hidden;
-        
+        /* padding-top:10vh; */
+        /* border-top:3px #ccc solid; */
         
     }
+   .select-preference-page{
+        font-family: 'Sniglet', cursive;
+        font-size: 4rem;
+        /* display:flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center; */
+        margin-top:calc(40%);
+        color:#fff;
+        padding-left:20%;
+        
+
+   }
+
+ 
+    .dot-1{
+       display:none;
+    }
+    .dot-2{
+        display:none;
+    }
+    .dot-3{
+        display:none;
+    }
+
     .category-btns-main{
         width:100vw;
         height:25%;
@@ -166,7 +192,7 @@
 
     .category-btns-food{
         width:100vw;
-        height:15.5vh;
+        height:14.3vh;
         margin:auto;
         display:flex;
         justify-content: center;
@@ -182,7 +208,7 @@
     }
     .category-btns-activities{
         width:100vw;
-        height:58.5%;
+        height:58%;
         margin:auto;
         display:flex;
         justify-content: center;
@@ -198,7 +224,7 @@
     }
     .category-btns-events{
         width:100vw;
-        height:40.5%;
+        height:32.4vh;
         margin:auto;
         display:flex;
         justify-content: center;
@@ -214,7 +240,7 @@
     }
     .category-btns-outdoors{
         width:100vw;
-        height:40.5%;
+        height:32.4vh;
         margin:auto;
         display:flex;
         justify-content: center;
@@ -256,6 +282,265 @@
     
 } 
 
+@media only screen and (min-width: 997px){
+    body{
+        background:url(../images/city_medium.jpg);
+        background-repeat: no-repeat;
+        
+
+        
+    } 
+    .main-container-p1{
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        top:10vh;
+
+        
+    }
+
+    .home-header{
+        font-family: 'Sniglet', cursive;
+        color:white;
+        font-size:4rem;
+        margin-top:20vh;
+    }
+    .home-header-description{
+        font-family: 'Sniglet', cursive;
+        color:white;
+        font-size:2rem;
+    }
+    .home-btn{
+        padding:1.1rem 4rem;
+        background:white;
+        color:black;
+        font-family: 'Sniglet', cursive;
+        font-size: 1.3rem;
+        margin-top:4vh;
+        border-radius: .8rem;
+    }
+
+    /* ---------------- p2 ----------------- */
+
+    .main-container-p2{
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        margin:auto;
+        position: relative;
+        bottom:15vh;
+    }
+    label{
+        color:white;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        text-align: center;
+    }
+    input{
+        width:50vw;
+        height:2rem;
+        margin-top:2vh;
+        font-size:2rem;
+        font-weight: bold;
+        background:transparent;
+        border-bottom: 3px white solid;
+        border-top:0px solid;
+        border-right:0px solid;
+        border-left:0px solid;
+        outline-width: 0;
+        color:white;
+        padding-bottom:.5rem;
+        font-family: 'Sniglet', cursive;
+        text-align: center;
+        
+    }
+    .location-search-btn{
+        padding:1.1rem 4rem;
+        background:white;
+        color:black;
+        font-family: 'Sniglet', cursive;
+        font-size: 1.3rem;
+        margin-top:4vh;
+        border-radius: .8rem;
+    }
+
+    .select-preference-page{
+        font-family: 'Sniglet', cursive;
+        font-size: 4rem;
+        width:100vw;
+        height:100vh;
+        /* display:flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center; */
+        
+        color:#fff;
+        
+        
+
+   }
+
+   .main-preference-wrapper{
+       position:fixed;
+       top:30%;
+       left:25%;
+       display:none;
+   }
+
+   
+
+
+ 
+    .dot-1{
+       display:none;
+    }
+    .dot-2{
+        display:none;
+    }
+    .dot-3{
+        display:none;
+    }
+
+}
+
+
+@media only screen and (min-width: 1200px){
+    body{
+        background:url(../images/city_large.jpg);
+        background-repeat: no-repeat;
+        
+    } 
+    .main-container-p1{
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        top:15vh;
+
+        
+    }
+
+    .home-header{
+        font-family: 'Sniglet', cursive;
+        color:white;
+        font-size:5rem;
+        margin-top:20vh;
+    }
+    .home-header-description{
+        font-family: 'Sniglet', cursive;
+        color:white;
+        font-size:2.5rem;
+    }
+    .home-btn{
+        padding:1.1rem 4rem;
+        background:white;
+        color:black;
+        font-family: 'Sniglet', cursive;
+        font-size: 1.6rem;
+        margin-top:4vh;
+        border-radius: .8rem;
+    }
+
+    /* ---------------- p2 ----------------- */
+
+    .main-container-p2{
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        margin:auto;
+        position: relative;
+        bottom:15vh;
+    }
+    label{
+        color:white;
+        font-family: 'Sniglet', cursive;
+        font-size: 2rem;
+        text-align: center;
+    }
+    input{
+        width:50vw;
+        height:2rem;
+        margin-top:2vh;
+        font-size:2rem;
+        font-weight: bold;
+        background:transparent;
+        border-bottom: 3px white solid;
+        border-top:0px solid;
+        border-right:0px solid;
+        border-left:0px solid;
+        outline-width: 0;
+        color:white;
+        padding-bottom:.4rem;
+        font-family: 'Sniglet', cursive;
+        text-align: center;
+        
+    }
+    .location-search-btn{
+        padding:1.1rem 4rem;
+        background:white;
+        color:black;
+        font-family: 'Sniglet', cursive;
+        font-size: 1.3rem;
+        margin-top:4vh;
+        border-radius: .8rem;
+    }
+
+    .select-preference-page{
+        font-family: 'Sniglet', cursive;
+        font-size: 4rem;
+        /* display:flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center; */
+        margin-top:calc(40%);
+        color:#fff;
+        padding-left:20%;
+        
+
+   }
+
+  
+   .main-preference-wrapper{
+    position:fixed;
+    top:30%;
+    left:30%;
+    display:none;
+}
+ 
+    .dot-1{
+       display:none;
+    }
+    .dot-2{
+        display:none;
+    }
+    .dot-3{
+        display:none;
+    }
+
+}
 /* *{
     margin:0;
     padding:0;
