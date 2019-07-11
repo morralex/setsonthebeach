@@ -8,6 +8,8 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Sniglet&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
@@ -16,74 +18,94 @@
 </head>
 
 <body>
-    <div class="main-container-p1">
-        <p class="home-header">Night Out</p>
-        <p class="home-header-description">The Dating and Hangout Organizer</p>
-        <div class="home-btn" id="homeBtn">Start Your Night Out</div>
-    </div>
-
-    <div class="main-container-p2">
-        <form>
-            <label>Choose A City</label>
-            <input class="input-style-stop" id="userCity" type="text">
-            <div class="location-search-btn" id="locationSearchBtn">Search</div>
-        </form>
-    </div>
-
-    <div class="select-preference-page">
-        <div class="main-preference-wrapper">
-            <span class="preference-text">Select A Preference</span>
-            <span class="ddd-wrapper">
-                <span class="dot-1">.</span>
-                <span class="dot-2">.</span>
-                <span class="dot-3">.</span>
-            </span>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="main-container-p1">
+                <p class="home-header">Night Out</p>
+                <p class="home-header-description">The Dating and Hangout Organizer</p>
+                <div class="home-btn" id="homeBtn">Start Your Night Out</div>
+            </div>
         </div>
     </div>
 
 
-    <div class="main-container-categories">
-
-        <div class="food category-btns-main" id="foodBtn">Food</div>
-        <div class="food-toggle-wrapper">
-            <div class="mexican-food category-btns-food">Mexican</div>
-            <div class="italian-food category-btns-food">Italian</div>
-            <div class="american-food category-btns-food">American</div>
-            <div class="chinese-food category-btns-food">Chinese</div>
-            <div class="japanese-food category-btns-food">Japanese</div>
-            <div class="tai-food category-btns-food">Tai</div>
-            <div class="greek-food category-btns-food">Greek</div>
-        </div> 
-
-        <div class="activities category-btns-main" id="activitiesBtn">Activities</div>
-        <div class="activities-toggle-wrapper">
-            <div class="bowling category-btns-activities">Bowling</div>
-            <div class="racing category-btns-activities">Racing</div>
-            <div class="arcades category-btns-activities">Arcade</div>
-            <div class="golf category-btns-activities">Golf</div>
-            <div class="movies category-btns-activities">Movie</div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="main-container-p2">
+                <form>
+                    <label>Choose A City</label>
+                    <input class="input-style-stop" id="userCity" type="text">
+                    <div class="location-search-btn" id="locationSearchBtn">Search</div>
+                </form>
+            </div>
         </div>
-        <div class="events category-btns-main" id="eventsBtn">Events</div>
-        <div class="events-toggle-wrapper">
-            <div class="concerts category-btns-events">Concerts</div>
-            <div class="festivals category-btns-events">Festivals</div>
-            <div class="fairs category-btns-events">Fairs</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="select-preference-page">
+                <div class="main-preference-wrapper">
+                    <span class="preference-text">Select A Preference</span>
+                    <span class="ddd-wrapper">
+                        <span class="dot-1">.</span>
+                        <span class="dot-2">.</span>
+                        <span class="dot-3">.</span>
+                    </span>
+                </div>
+            </div>
         </div>
-        <div class="outdoors category-btns-main" id="outdoorsBtn">Outdoors</div>
-        <div class="outdoors-toggle-wrapper">
-            <div class="beaches category-btns-outdoors">Beaches</div>
-            <div class="parks category-btns-outdoors">Parks</div>
-            <div class="trails category-btns-outdoors">Trails</div>
-        </div>
-
     </div>
 
-    <!-- Displayed Chosen Categories -->
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="main-container-categories">
 
-    <div class="google-maps-container"></div>
+                <div class="food category-btns-main" id="foodBtn">Food</div>
+                <div class="food-toggle-wrapper">
+                    <div class="mexican-food category-btns-food">Mexican</div>
+                    <div class="italian-food category-btns-food">Italian</div>
+                    <div class="american-food category-btns-food">American</div>
+                    <div class="chinese-food category-btns-food">Chinese</div>
+                    <div class="japanese-food category-btns-food">Japanese</div>
+                    <div class="tai-food category-btns-food">Tai</div>
+                    <div class="greek-food category-btns-food">Greek</div>
+                </div> 
+
+                <div class="activities category-btns-main" id="activitiesBtn">Activities</div>
+                <div class="activities-toggle-wrapper">
+                    <div class="bowling category-btns-activities">Bowling</div>
+                    <div class="racing category-btns-activities">Racing</div>
+                    <div class="arcades category-btns-activities">Arcade</div>
+                    <div class="golf category-btns-activities">Golf</div>
+                    <div class="movies category-btns-activities">Movie</div>
+                </div>
+
+                <div class="events category-btns-main" id="eventsBtn">Events</div>
+                <div class="events-toggle-wrapper">
+                    <div class="concerts category-btns-events">Concerts</div>
+                    <div class="festivals category-btns-events">Festivals</div>
+                    <div class="fairs category-btns-events">Fairs</div>
+                </div>
+
+                <div class="outdoors category-btns-main" id="outdoorsBtn">Outdoors</div>
+                <div class="outdoors-toggle-wrapper">
+                    <div class="beaches category-btns-outdoors">Beaches</div>
+                    <div class="parks category-btns-outdoors">Parks</div>
+                    <div class="trails category-btns-outdoors">Trails</div>
+                </div>
+            </div>
+        </div>
 
 
-    <script src="./assets/java/script.js"></script>
+
+        <!-- Displayed Chosen Categories -->
+        <!-- <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+        <div class="google-maps-container"></div>
+        <!-- </div>
+    </div> -->
+
+
+        <script src="./assets/java/script.js"></script>
 
 
 </body>
