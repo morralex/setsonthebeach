@@ -220,10 +220,50 @@ $("#locationSearchBtn").on("click", function () {
 
     axios.get("https://app.ticketmaster.com/discovery/v2/events.json?city=" + userCity + "&apikey=63AhjiOX3qg0isIkjNClj7n4zzj0XsPl")
         .then(function (response) {
-            console.log(response.data._embedded.events)
+
+            // console.log(response.data._embedded.events[0, ].name);
+
+
+            $('#eventsBtn').on('click', function () {
+
+                var eventDiv = $('<div>');
+                console.log(response.data)
+                for (var i = 0; i < response.data._embedded.events.length; i++) {
+                    var eventList = response.data._embedded.events;
+
+                    console.log(response.data._embedded.events[i].name)
+                    var test = $('<div>')
+                    eventDiv.append(response.data._embedded.events[i].name);
+
+                }
+
+                // for (var i = 0; i < eventList.length; i++) {
+                //     console.log(eventList[i].name)
+                // }
+
+                //  var pOne = $('<p>').html(JSON.stringify(eventList));
+
+                // console.log(pOne)
+
+
+
+                $('.concerts').prepend(eventDiv)
+
+
+
+
+
+
+            })
         })
 
+    // var apiLoopThru = function(){
+    //     for(var i = 0; i < )
+    // }
+
 })
+
+
 // function displayEvents() {
 //     userCity = $('#userCity').val().trim();
 //     console.log(userCity)
