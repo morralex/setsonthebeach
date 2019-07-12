@@ -32,9 +32,14 @@
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="main-container-p2">
+                <p>Enter Your Location Details</p>
                 <form>
-                    <label>Choose A City</label>
+                    <label>City (ie. irivne)</label>
                     <input class="input-style-stop" id="userCity" type="text">
+                    <label>State (ie. ca)</label>
+                    <input class="input-style-stop" id="userState" type="text">
+                    <label>Radius in miles (ie. 10)</label>
+                    <input class="input-style-stop" id="userRadius" type="text">
                     <div class="location-search-btn" id="locationSearchBtn">Search</div>
                 </form>
             </div>
@@ -61,13 +66,8 @@
 
                 <div class="food category-btns-main" id="foodBtn">Food</div>
                 <div class="food-toggle-wrapper">
-                    <div class="mexican-food category-btns-food">Mexican</div>
-                    <div class="italian-food category-btns-food">Italian</div>
-                    <div class="american-food category-btns-food">American</div>
-                    <div class="chinese-food category-btns-food">Chinese</div>
-                    <div class="japanese-food category-btns-food">Japanese</div>
-                    <div class="tai-food category-btns-food">Tai</div>
-                    <div class="greek-food category-btns-food">Greek</div>
+                    <div class="restaurant category-btns-food">Restaurants</div>
+                    <div class="dessert category-btns-food">Dessert</div>
                 </div> 
 
                 <div class="activities category-btns-main" id="activitiesBtn">Activities</div>
@@ -100,7 +100,10 @@
         <!-- Displayed Chosen Categories -->
         <!-- <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
-        <div class="google-maps-container"></div>
+        <div class="mapquest-container">
+            <div id="restaurantList"></div>
+            <div id="iceCreamList"></div>
+        </div>
         <!-- </div>
     </div> -->
 

@@ -8,20 +8,24 @@
 //     console.log(response);
 // });
 
-var googleMapsContainer = $('.google-maps-container')
+var userCity;
+var userState;
+var userRadius;
+
+var mapquestContainer = $('.mapquest-container');
+
+var mainContainerP1 = $('.main-container-p1');
+var mainContainerP2 = $('.main-container-p2');
 
 $(document).ready(function () {
-    mainContainerP2.hide()
+    mainContainerP2.hide();
     mainContainerCategories.hide();
-    googleMapsContainer.hide();
+    mapquestContainer.hide();
     $('.food-toggle-wrapper').hide();
 })
 
 
 
-
-var mainContainerP1 = $('.main-container-p1');
-var mainContainerP2 = $('.main-container-p2');
 
 var mainContainerCategories = $('.main-container-categories')
 
@@ -61,16 +65,24 @@ var homeBtn = $('#homeBtn');
 homeBtn.on('click', function () {
     $('.main-container-p1').hide();
     mainContainerP2.show();
-    googleMapsContainer.hide();
+    mapquestContainer.hide();
 
 })
 
 searchLocationBtn.on('click', function () {
+
+    userCity = $('#userCity').val().trim();
+    console.log(userCity)
+    userState = $('#userState').val().trim();
+    console.log(userState)
+    userRadius = $('#userRadius').val().trim();
+    console.log(userRadius)
+
     mainContainerP2.hide();
     $('.main-preference-wrapper').show();
     $('.select-preference-page').show();
     mainContainerCategories.show();
-    googleMapsContainer.hide();
+    mapquestContainer.hide();
 
     setTimeout(function () {
         $('.dot-1').show();
@@ -100,71 +112,73 @@ var movieBtn = $('.movie');
 
 bowlingBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 })
 racingBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 })
 arcadeBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 })
 golfBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 })
 movieBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 })
 
 // -------------food buttons---------------
 
-var mexicanBtn = $('.mexican-food');
-var italianBtn = $('.italian-food');
-var chineseBtn = $('.chinese-food');
-var japaneseBtn = $('.japanese-food');
-var taiBtn = $('.tai-food');
-var greekBtn = $('.greek-food');
-var americanBtn = $('.american-food')
+var restaurantBtn = $('.restaurant');
+var dessertBtn = $('.dessert');
 
-mexicanBtn.on('click', function () {
+restaurantBtn.on('click', function () {
     $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
+    mainContainerCategories.hide();
+    mapquestContainer.show();
+    var restaurantsCode = 581208;
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin="+userCity+",+"+userState+"&radius="+userRadius+"&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|"+restaurantsCode+"&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+            console.log(response.data)
+            console.log(response.data.searchResults[0].name)
+            for(var i = 0; i<response.data.searchResults.length; i++){
+                //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+                $("#restaurantList").append(response.data.searchResults[i].name + "<br>");
+                $("#restaurantList").append(response.data.searchResults[i].fields.address+" "+response.data.searchResults[i].fields.city+", "+response.data.searchResults[i].fields.state + "<br>");
+                $("#restaurantList").append(response.data.searchResults[i].fields.phone + "<br>")
+                $("#restaurantList").append("<br>");
+            };
+           
+    
+            // .catch(function (err) {
+            //         console.error(err)
+            //     })
+        })
 
 })
-italianBtn.on('click', function () {
+dessertBtn.on('click', function () {
+    var iceCreamCode = 581203;
     $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
+    mapquestContainer.show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin="+userCity+",+"+userState+"&radius="+userRadius+"&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|"+iceCreamCode+"&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+            console.log(response.data)
+            console.log(response.data.searchResults[0].name)
+    
+                .catch(function (err) {
+                    console.error(err)
+                })
+        })
 })
-chineseBtn.on('click', function () {
-    $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
 
-})
-japaneseBtn.on('click', function () {
-    $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
-})
-taiBtn.on('click', function () {
-    $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
-})
-greekBtn.on('click', function () {
-    $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
-})
-americanBtn.on('click', function () {
-    $('.food-toggle-wrapper').hide();
-    googleMapsContainer.show();
-
-})
 
 // -------------- Event Buttons --------------
 
@@ -174,17 +188,17 @@ var fairsBtn = $('.fairs');
 
 concertsBtn.on('click', function () {
     $('.events-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 festivalsBtn.on('click', function () {
     $('.events-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 fairsBtn.on('click', function () {
     $('.events-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 
@@ -196,17 +210,17 @@ var trailsBtn = $('.trails');
 
 beachesBtn.on('click', function () {
     $('.outdoors-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 parksBtn.on('click', function () {
     $('.outdoors-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 trailsBtn.on('click', function () {
     $('.outdoors-toggle-wrapper').hide();
-    googleMapsContainer.show();
+    mapquestContainer.show();
 
 })
 
@@ -233,3 +247,58 @@ $("#locationSearchBtn").on("click", function () {
 //             console.log(response)
 //         })
 // }
+
+//------------- Mapquest API-------------//
+
+var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
+// axios({
+//     //url: "http://www.mapquestapi.com/search/v2/radius?key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm&maxMatches=4&origin=39.750307,-104.999472",
+//     url: mapquestURl,
+//     method: "GET"
+// }).then(function (response) {
+//         console.log(response.data)
+
+//             .catch(function (err) {
+//                 console.error(err)
+//             })
+//     })
+
+    //mapquest api key: k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm
+   //group sic codes: 
+   //restaurant
+   var restaurantsCode = 581208;
+
+   //desssert
+   var donutsCode = 546105;
+   var iceCream = 581203;
+   var cafeCode = 581214;
+
+   //activities
+   var karaokeCode = 581309;
+   var barsCode = 581301;
+   var bowlingCode = 793301;
+   var parksCode = 799951;
+   var museumCode = 841201;
+   var beachCode = 901006;
+   var animalShelterCode = 75203;
+   var arcadeCode = 799303;
+   var billiardCode = 799912;
+   var aboretumCode = 842203;
+   var danceClubCode = 869921;
+   var aquariumCode = 842205;
+    
+
+   var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin="+userCity+",+"+userState+"&radius="+userRadius+"&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|"+restaurantsCode+"&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
+    var restaurantsCode = 581208;
+    axios({
+        //url: "http://www.mapquestapi.com/search/v2/radius?key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm&maxMatches=4&origin=39.750307,-104.999472",
+        //url: mapquestURL,
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=irvine,+ca&radius=10&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581208&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+            console.log(response.data)
+    
+                .catch(function (err) {
+                    console.error(err)
+                })
+        })
