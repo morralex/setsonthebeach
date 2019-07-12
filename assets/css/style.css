@@ -271,7 +271,7 @@
 
 
     /* ---------------- google maps container ----------------- */
-    .google-maps-container{
+    .mapquest-container{
         width:99vw;
         height:99vh;
         border:1vh magenta solid;
