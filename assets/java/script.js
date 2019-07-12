@@ -227,33 +227,57 @@ $("#locationSearchBtn").on("click", function () {
             $('#eventsBtn').on('click', function () {
 
                 var eventDiv = $('<div>');
-                console.log(response.data)
-                for (var i = 0; i < response.data._embedded.events.length; i++) {
-                    var eventList = response.data._embedded.events;
+                console.log(response.data);
+                // for (var i = 0; i < response.data._embedded.events.length; i++) {
+                //     var eventList = response.data._embedded.events;
 
-                    console.log(response.data._embedded.events[i].name)
-                    var test = $('<div>')
-                    eventDiv.append(response.data._embedded.events[i].name);
+                //     console.log(response.data._embedded.events[0].name)
+                //     var test = $('<div>')
+                //     eventDiv.append(response.data._embedded.events[0].name);
 
-                }
-
-                // for (var i = 0; i < eventList.length; i++) {
-                //     console.log(eventList[i].name)
                 // }
+                
 
-                //  var pOne = $('<p>').html(JSON.stringify(eventList));
+                console.log(response.data._embedded.events[0].images[0].url)
+                var imgURL = response.data._embedded.events[0].images[2].url;
+                var imgElem = $('.card-img-top-one').attr('src', imgURL)
+                eventDiv.append(imgElem);
+                eventDiv.append(response.data._embedded.events[0].name);
 
-                // console.log(pOne)
-
-
-
-                $('.concerts').prepend(eventDiv)
-
-
-
-
+                $('.card-title-one').prepend(eventDiv)
+            })
 
 
+            
+            
+
+            $('#eventsBtn').on('click', function () {
+
+                var eventDiv = $('<div>');
+                console.log(response.data);
+
+                var imgURL = response.data._embedded.events[4].images[2].url;
+                var imgElem = $('.card-img-top-two').attr('src', imgURL)
+                eventDiv.append(imgElem);
+                eventDiv.append(response.data._embedded.events[4].name);
+
+
+                $('.card-title-two').prepend(eventDiv)
+            })
+
+            $('#eventsBtn').on('click', function () {
+
+                var eventDiv = $('<div>');
+                console.log(response.data);
+
+                var imgURL = response.data._embedded.events[8].images[2].url;
+                var imgElem = $('.card-img-top-three').attr('src', imgURL)
+                eventDiv.append(imgElem);
+                
+                eventDiv.append(response.data._embedded.events[8].name);
+
+
+                $('.card-title-three').prepend(eventDiv)
             })
         })
 
