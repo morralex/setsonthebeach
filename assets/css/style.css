@@ -272,10 +272,26 @@
 
     /* ---------------- google maps container ----------------- */
     .mapquest-container{
-        width:99vw;
-        height:99vh;
-        border:1vh magenta solid;
-        background:white;
+        /* width:99vw;
+        height:99vh; */
+        /* border:1vh magenta solid;
+        background:white; */
+        width:100vw;
+        height:100vh;
+        display:flex;
+        /* align-items: center; */
+        flex-direction: column;
+        background:#444;
+        opacity:.7;
+        overflow: hidden;
+        padding-left:10px;
+        margin-left: 11px;
+        font-family: 'Sniglet', cursive;
+        color:white;
+        font-size:12px;
+        
+  flex-wrap: wrap;
+ 
         
     }
     
