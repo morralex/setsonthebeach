@@ -18,6 +18,8 @@ var mapquestContainer = $('.mapquest-container');
 var mainContainerP1 = $('.main-container-p1');
 var mainContainerP2 = $('.main-container-p2');
 var itineraryContainer = $('.itinerary-container');
+var ticketmasterContainer = $('.ticketmastert-Container');
+ticketmasterContainer.hide();
 
 $(document).ready(function () {
     mainContainerP2.hide();
@@ -52,6 +54,7 @@ eventsBtn.on('click', function () {
 doneBtn.on('click', function () {
     $('.category-btns-main').hide();
     itineraryContainer.show();
+    mainContainerCategories.hide();
     $('#itinerary').show();
 })
 
@@ -128,37 +131,39 @@ var billiardCode = 799912;
 var aboretumCode = 842203;
 var danceClubCode = 869921;
 var aquariumCode = 842205;
-
+var eventBtn = $('.events');
 var bowlingBtn = $('.bowling');
 var barBtn = $('.bar');
-var parkBtn = $('.park');
+//var parkBtn = $('.park');
 var arcadeBtn = $('.arcade');
-var danceClubBtn = $('.danceClub');
+//var danceClubBtn = $('.danceClub');
 var billiardBtn = $('.billiard');
-
+eventBtn.on('click', function(){
+    ticketmasterContainer.show();
+    $('#eventsList').show();
+})
 bowlingBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
     mainContainerCategories.hide();
     mapquestContainer.show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + bowlingCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + bowlingCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
         console.log(response.data.searchResults[0].name)
         for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+
             var addButton = $("<button>");
-            addButton.addClass("add");
+            addButton.addClass("addBowling");
             addButton.attr("indexNum", i);
             addButton.text("Add to Itinerary");
             $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>");
-        };
+            $("#activitiesList").append("<br>"  + "<br>");
+        }
 
 
         // .catch(function (err) {
@@ -172,24 +177,23 @@ barBtn.on('click', function () {
     mainContainerCategories.hide();
     mapquestContainer.show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + barsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + barsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
         console.log(response.data.searchResults[0].name)
         for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+
             var addButton = $("<button>");
-            addButton.addClass("add");
+            addButton.addClass("addBar");
             addButton.attr("indexNum", i);
             addButton.text("Add to Itinerary");
             $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>");
-        };
+            $("#activitiesList").append("<br>"  + "<br>");
+        }
 
 
         // .catch(function (err) {
@@ -197,59 +201,58 @@ barBtn.on('click', function () {
         //     })
     })
 })
-parkBtn.on('click', function () {
-    $('.activities-toggle-wrapper').hide();
-    mainContainerCategories.hide();
-    mapquestContainer.show();
-    axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + parksCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
-        method: "GET"
-    }).then(function (response) {
-        console.log(response.data)
-        console.log(response.data.searchResults[0].name)
-        for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
-            $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
-            $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
-            $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
-            var addButton = $("<button>");
-            addButton.addClass("add");
-            addButton.attr("indexNum", i);
-            addButton.text("Add to Itinerary");
-            $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>");
-        };
+// parkBtn.on('click', function () {
+//     $('.activities-toggle-wrapper').hide();
+//     mainContainerCategories.hide();
+//     mapquestContainer.show();
+//     axios({
+//         url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + parksCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+//         method: "GET"
+//     }).then(function (response) {
+//         console.log(response.data)
+//         console.log(response.data.searchResults[0].name)
+//         for (var i = 0; i < response.data.searchResults.length; i++) {
+//             //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+//             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
+//             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
+//             $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
+//             //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+//             var addButton = $("<button>");
+//             addButton.addClass("add");
+//             addButton.attr("indexNum", i);
+//             addButton.text("Add to Itinerary");
+//             $("#activitiesList").append(addButton);
+//             $("#activitiesList").append("<br>");
+//         };
 
 
-        // .catch(function (err) {
-        //         console.error(err)
-        //     })
-    })
-})
+//         // .catch(function (err) {
+//         //         console.error(err)
+//         //     })
+//     })
+// })
 arcadeBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
     mainContainerCategories.hide();
     mapquestContainer.show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + arcadeCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + arcadeCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
         console.log(response.data.searchResults[0].name)
         for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+
             var addButton = $("<button>");
-            addButton.addClass("add");
+            addButton.addClass("addArcade");
             addButton.attr("indexNum", i);
             addButton.text("Add to Itinerary");
             $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>");
-        };
+            $("#activitiesList").append("<br>"  + "<br>");
+        }
 
 
         // .catch(function (err) {
@@ -257,61 +260,58 @@ arcadeBtn.on('click', function () {
         //     })
     })
 })
-danceClubBtn.on('click', function () {
-    $('.activities-toggle-wrapper').hide();
-    mainContainerCategories.hide();
-    mapquestContainer.show();
-    axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + danceClubCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
-        method: "GET"
-    }).then(function (response) {
-        console.log(response.data)
-        console.log(response.data.searchResults[0].name)
-        for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
-            $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
-            $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
-            $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
-            var addButton = $("<button>");
-            addButton.addClass("add");
-            addButton.attr("indexNum", i);
-            addButton.text("Add to Itinerary");
-            $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>");
-        };
+// danceClubBtn.on('click', function () {
+//     $('.activities-toggle-wrapper').hide();
+//     mainContainerCategories.hide();
+//     mapquestContainer.show();
+//     axios({
+//         url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + danceClubCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+//         method: "GET"
+//     }).then(function (response) {
+//         console.log(response.data)
+//         console.log(response.data.searchResults[0].name)
+//         for (var i = 0; i < response.data.searchResults.length; i++) {
+//             //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+//             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
+//             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
+//             $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
+//             //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+//             var addButton = $("<button>");
+//             addButton.addClass("add");
+//             addButton.attr("indexNum", i);
+//             addButton.text("Add to Itinerary");
+//             $("#activitiesList").append(addButton);
+//             $("#activitiesList").append("<br>");
+//         };
 
 
-        // .catch(function (err) {
-        //         console.error(err)
-        //     })
-    })
-})
+//         // .catch(function (err) {
+//         //         console.error(err)
+//         //     })
+//     })
+// })
 billiardBtn.on('click', function () {
     $('.activities-toggle-wrapper').hide();
     mainContainerCategories.hide();
     mapquestContainer.show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + billiardCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + billiardCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
         console.log(response.data.searchResults[0].name)
         for (var i = 0; i < response.data.searchResults.length; i++) {
-            //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
             $("#activitiesList").append(response.data.searchResults[i].name + "<br>");
             $("#activitiesList").append(response.data.searchResults[i].fields.address + " " + response.data.searchResults[i].fields.city + ", " + response.data.searchResults[i].fields.state + "<br>");
-            $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>" + "<br>")
-            //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
+            $("#activitiesList").append(response.data.searchResults[i].fields.phone + "<br>")
+
             var addButton = $("<button>");
-            addButton.addClass("add");
+            addButton.addClass("addBilliard");
             addButton.attr("indexNum", i);
             addButton.text("Add to Itinerary");
             $("#activitiesList").append(addButton);
-            $("#activitiesList").append("<br>" + "<br>");
-        };
-
-
+            $("#activitiesList").append("<br>"  + "<br>");
+        }
         // .catch(function (err) {
         //         console.error(err)
         //     })
@@ -329,7 +329,7 @@ restaurantBtn.on('click', function () {
     mapquestContainer.show();
     var restaurantsCode = 581208;
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
@@ -342,7 +342,7 @@ restaurantBtn.on('click', function () {
 
             //$("#restuarantList").append($("<button></button>").text("Add").attri('id', i));
             var addButton = $("<button>");
-            addButton.addClass("add");
+            addButton.addClass("addRestaurant");
             addButton.attr("indexNum", i);
             addButton.text("Add to Itinerary");
             $("#restaurantList").append(addButton);
@@ -356,19 +356,22 @@ restaurantBtn.on('click', function () {
     })
 
 })
-$(document).on("click", ".add", ".restaurant", function (event) {
+$(document).on("click", ".addRestaurant", function (event) {
     var index = $(this).attr("indexNum")
     console.log(index)
 
     mapquestContainer.hide();
     mainContainerP2.hide();
     mainContainerCategories.show();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
 
     $('.category-btns-main').show();
     // $('.food-toggle-wrapper').hide();
     // $('.activities-toggle-wrapper').show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
@@ -378,6 +381,139 @@ $(document).on("click", ".add", ".restaurant", function (event) {
         $("#itinerary").append(response.data.searchResults[index].name + "<br>");
         $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
         $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
+
+
+        // .catch(function (err) {
+        //         console.error(err)
+        //     })
+    })
+})
+$(document).on("click", ".addBowling", function (event) {
+    var index = $(this).attr("indexNum")
+    console.log(index)
+
+    mapquestContainer.hide();
+    mainContainerP2.hide();
+    mainContainerCategories.show();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
+
+    $('.category-btns-main').show();
+    // $('.food-toggle-wrapper').hide();
+    // $('.activities-toggle-wrapper').show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + bowlingCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.data)
+        //console.log(response.data.searchResults[0].name)
+
+        //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+        $("#itinerary").append(response.data.searchResults[index].name + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
+
+
+        // .catch(function (err) {
+        //         console.error(err)
+        //     })
+    })
+})
+$(document).on("click", ".addBilliard", function (event) {
+    var index = $(this).attr("indexNum")
+    console.log(index)
+
+    mapquestContainer.hide();
+    mainContainerP2.hide();
+    mainContainerCategories.show();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
+
+    $('.category-btns-main').show();
+    // $('.food-toggle-wrapper').hide();
+    // $('.activities-toggle-wrapper').show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + billiardCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.data)
+        //console.log(response.data.searchResults[0].name)
+
+        //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+        $("#itinerary").append(response.data.searchResults[index].name + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
+
+
+        // .catch(function (err) {
+        //         console.error(err)
+        //     })
+    })
+})
+$(document).on("click", ".addBar", function (event) {
+    var index = $(this).attr("indexNum")
+    console.log(index)
+
+    mapquestContainer.hide();
+    mainContainerP2.hide();
+    mainContainerCategories.show();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
+
+    $('.category-btns-main').show();
+    // $('.food-toggle-wrapper').hide();
+    // $('.activities-toggle-wrapper').show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + barsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.data)
+        //console.log(response.data.searchResults[0].name)
+
+        //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+        $("#itinerary").append(response.data.searchResults[index].name + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
+
+
+        // .catch(function (err) {
+        //         console.error(err)
+        //     })
+    })
+})
+$(document).on("click", ".addArcade", function (event) {
+    var index = $(this).attr("indexNum")
+    console.log(index)
+
+    mapquestContainer.hide();
+    mainContainerP2.hide();
+    mainContainerCategories.show();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
+
+    $('.category-btns-main').show();
+    // $('.food-toggle-wrapper').hide();
+    // $('.activities-toggle-wrapper').show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + arcadeCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.data)
+        //console.log(response.data.searchResults[0].name)
+
+        //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+        $("#itinerary").append(response.data.searchResults[index].name + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
 
 
 
@@ -385,14 +521,50 @@ $(document).on("click", ".add", ".restaurant", function (event) {
         //         console.error(err)
         //     })
     })
+})
+$(document).on("click", ".addEvent", function (event) {
+    var index = $(this).attr("indexNum")
+    console.log(index)
 
+    mapquestContainer.hide();
+    mainContainerP2.hide();
+    mainContainerCategories.show();
+    ticketmasterContainer.hide();
+   
+    $("#restaurantList").html('');
+    $("#activitiesList").html('');
+    $("#eventsList").html('');
+
+    $('.category-btns-main').show();
+    // $('.food-toggle-wrapper').hide();
+    // $('.activities-toggle-wrapper').show();
+    axios({
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + arcadeCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.data)
+        //console.log(response.data.searchResults[0].name)
+
+        //$("#restaurantList").append(JSON.stringify(response.data.searchResults[i].name));
+        $("#itinerary").append(response.data.searchResults[index].name + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.address + " " + response.data.searchResults[index].fields.city + ", " + response.data.searchResults[index].fields.state + "<br>");
+        $("#itinerary").append(response.data.searchResults[index].fields.phone + "<br>")
+        $("#itinerary").append("<br>"  + "<br>");
+
+
+
+        // .catch(function (err) {
+        //         console.error(err)
+        //     })
+    })
+    
 })
 dessertBtn.on('click', function () {
     var iceCreamCode = 581203;
     $('.food-toggle-wrapper').hide();
     mapquestContainer.show();
     axios({
-        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + iceCreamCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+        url: "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + iceCreamCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
         method: "GET"
     }).then(function (response) {
         console.log(response.data)
@@ -427,6 +599,8 @@ fairsBtn.on('click', function () {
 
 })
 
+
+
 // -------------- Outdoor Buttons --------------
 
 // var beachesBtn = $('.beaches');
@@ -452,14 +626,27 @@ fairsBtn.on('click', function () {
 //---------------- Ticketmaster API-------------//
 
 
-$("#locationSearchBtn").on("click", function () {
+$("#eventsBtn").on("click", function () {
 
     userCity = $('#userCity').val().trim();
     console.log(userCity)
 
     axios.get("https://app.ticketmaster.com/discovery/v2/events.json?city=" + userCity + "&apikey=63AhjiOX3qg0isIkjNClj7n4zzj0XsPl")
         .then(function (response) {
+            for(var i=0; i<5; i++){
+            $("#eventsList").append(response.data._embedded.events[i].name + "<br>");
+            $("#eventsList").append(response.data._embedded.events[i].url + "<br>");
+
+            var addButton = $("<button>");
+            addButton.addClass("addEvent");
+            addButton.attr("indexNum", i);
+            addButton.text("Add to Itinerary");
+            $("#eventsList").append(addButton);
+            $("#eventsList").append("<br>"  + "<br>");
+            }
             console.log(response.data._embedded.events)
+            console.log(response.data._embedded.events[1].name)
+            //response.data._embedded.events[1].url;
         })
 
 })
@@ -475,7 +662,7 @@ $("#locationSearchBtn").on("click", function () {
 
 //------------- Mapquest API-------------//
 
-var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
+var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
 // axios({
 //     //url: "http://www.mapquestapi.com/search/v2/radius?key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm&maxMatches=4&origin=39.750307,-104.999472",
 //     url: mapquestURl,
@@ -513,12 +700,12 @@ var danceClubCode = 869921;
 var aquariumCode = 842205;
 
 
-var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
+var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
 var restaurantsCode = 581208;
 axios({
     //url: "http://www.mapquestapi.com/search/v2/radius?key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm&maxMatches=4&origin=39.750307,-104.999472",
     //url: mapquestURL,
-    url: "https://www.mapquestapi.com/search/v2/radius?origin=irvine,+ca&radius=10&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581208&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
+    url: "https://www.mapquestapi.com/search/v2/radius?origin=irvine,+ca&radius=10&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581208&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
     method: "GET"
 }).then(function (response) {
     console.log(response.data)

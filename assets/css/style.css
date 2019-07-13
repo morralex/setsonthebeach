@@ -80,7 +80,14 @@
     }
 
     /* ---------------- p2 ----------------- */
-
+    #begin{
+        
+            color:white;
+            font-family: 'Sniglet', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+        
+    }
     .main-container-p2{
         width:100vw;
         height:100vh;
@@ -278,8 +285,8 @@
         background:white; */
         width:100vw;
         height:100vh;
-        display:flex;
-        /* align-items: center; */
+        /* display:flex; */
+        align-items: center;
         flex-direction: column;
         background:#444;
         opacity:.7;
@@ -289,9 +296,9 @@
         font-family: 'Sniglet', cursive;
         color:white;
         font-size:12px;
-        
-  flex-wrap: wrap;
- 
+        flex-wrap: wrap;
+        /* float: left; */
+        display: inline-block;
         
     }
     
@@ -592,3 +599,17 @@ body{
     margin-top:4vh;
     border-radius: .8rem;
 }  */
+
+#finished{
+    color:#fff;
+    font-family: 'Sniglet', cursive;
+    font-size: 2rem;
+}
+
+#itinerary{
+        color:#fff;
+        font-family: 'Sniglet', cursive;
+        font-size: 1rem;
+}
+
+

@@ -32,9 +32,9 @@
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="main-container-p2">
-                <p>Enter Your Location Details</p>
+                <p id="begin">Enter Your Location Details</p>
                 <form>
-                    <label>City (ie. irivne)</label>
+                    <label>City (ie. irvine)</label>
                     <input class="input-style-stop" id="userCity" type="text">
                     <label>State (ie. ca)</label>
                     <input class="input-style-stop" id="userState" type="text">
@@ -74,18 +74,18 @@
                 <div class="activities-toggle-wrapper">
                     <div class="bowling category-btns-activities">Bowling</div>
                     <div class="bar category-btns-activities">Bar</div>
-                    <div class="park category-btns-activities">Park</div>
-                    <div class="arcade category-btns-activities">Arcade</div>
-                    <div class="danceClub category-btns-activities">Dance Club</div>
                     <div class="billiard category-btns-activities">Billiard</div>
+                    <!-- <div class="park category-btns-activities">Park</div> -->
+                    <div class="arcade category-btns-activities">Arcade</div>
+                    <!-- <div class="danceClub category-btns-activities">Dance Club</div> -->
                 </div>
                 
                 <div class="events category-btns-main" id="eventsBtn">Events</div>
-                <div class="events-toggle-wrapper">
+                <!-- <div class="events-toggle-wrapper">
                     <div class="concerts category-btns-events">Concerts</div>
                     <div class="festivals category-btns-events">Festivals</div>
                     <div class="fairs category-btns-events">Fairs</div>
-                </div>
+                </div> -->
                 <div class="done category-btns-main" id="doneBtn">Done Planning!</div>
 
             </div>
@@ -104,7 +104,12 @@
 
         </div>
         <div class="itinerary-container">
+                <h1 id="finished">Here's what's on the agenda:</h1>
                 <div id="itinerary">
+        </div>
+
+        <div class="ticketmaster-container">
+            <div id="eventsList"></div>
         </div>
         
 
