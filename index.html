@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Sniglet&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0d13b5b5a0.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,10 +33,12 @@
 
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <i class="fas fa-arrow-circle-left fa-2x back-arrow" id="backArrowTwo"></i>
+
             <div class="main-container-p2">
-                <p>Enter Your Location Details</p>
+                <p id="begin">Enter Your Location Details</p>
                 <form>
-                    <label>City (ie. irivne)</label>
+                    <label>City (ie. irvine)</label>
                     <input class="input-style-stop" id="userCity" type="text">
                     <label>State (ie. ca)</label>
                     <input class="input-style-stop" id="userState" type="text">
@@ -45,6 +49,7 @@
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="select-preference-page">
@@ -63,9 +68,10 @@
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="main-container-categories">
-
+                    <div class="arrow-div"><i class="fas fa-arrow-circle-left fa-2x back-arrow-no-opacity" id="backArrowThree"></i></div> 
                 <div class="food category-btns-main" id="foodBtn">Food</div>
                 <div class="food-toggle-wrapper">
+                        <div class="arrow-div"><i class="fas fa-arrow-circle-left fa-2x back-arrow-no-opacity" id="backArrowFour"></i></div> 
                     <div class="restaurant category-btns-food">Restaurants</div>
                     <div class="dessert category-btns-food">Dessert</div>
                 </div> 
@@ -73,65 +79,52 @@
                 <div class="activities category-btns-main" id="activitiesBtn">Activities</div>
                 <div class="activities-toggle-wrapper">
                     <div class="bowling category-btns-activities">Bowling</div>
-                    <div class="racing category-btns-activities">Racing</div>
-                    <div class="arcades category-btns-activities">Arcade</div>
-                    <div class="golf category-btns-activities">Golf</div>
-                    <div class="movies category-btns-activities">Movie</div>
+                    <div class="bar category-btns-activities">Bar</div>
+                    <div class="billiard category-btns-activities">Billiard</div>
+                    <!-- <div class="park category-btns-activities">Park</div> -->
+                    <div class="arcade category-btns-activities">Arcade</div>
+                    <!-- <div class="danceClub category-btns-activities">Dance Club</div> -->
                 </div>
-
+                
                 <div class="events category-btns-main" id="eventsBtn">Events</div>
                 <div class="events-toggle-wrapper">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card container" style="width: 18rem;">
-                                <img src="..." class="card-img-top-one row" alt="...">
-                                <div class="card-body-one">
-                                    <h5 class="card-title-one row">Card title</h5>
-                                    <p class="card-text-one row">Some quick example text to build on the card title and make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card container" style="width: 18rem;">
+                                        <!-- <img src="..." class="card-img-top-one row" alt="..."> -->
+                                        <div class="card-body-one">
+                                            <h5 class="card-title-one row">Card title</h5>
+                                           
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card container" style="width: 18rem;">
+                                        <!-- <img src="..." class="card-img-top-two row" alt="..."> -->
+                                        <div class="card-body-two">
+                                            <h5 class="card-title-two row">Card title</h5>
+                                           
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card container" style="width: 18rem;">
+                                        <!-- <img src="..." class="card-img-top-three row" alt="..."> -->
+                                        <div class="card-body-three">
+                                            <h5 class="card-title-three row">Card title</h5>
+                                           
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card container" style="width: 18rem;">
-                                <img src="..." class="card-img-top-two row" alt="...">
-                                <div class="card-body-two">
-                                    <h5 class="card-title-two row">Card title</h5>
-                                    <p class="card-text-two row">Some quick example text to build on the card title and make
-                                        up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card container" style="width: 18rem;">
-                                <img src="..." class="card-img-top-three row" alt="...">
-                                <div class="card-body-three">
-                                    <h5 class="card-title-three row">Card title</h5>
-                                    <p class="card-text-three row">Some quick example text to build on the card title and
-                                        make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+ 
                 </div>
 
-                <div class="outdoors category-btns-main" id="outdoorsBtn">Outdoors</div>
-                <div class="outdoors-toggle-wrapper">
-                    <div class="beaches category-btns-outdoors">Beaches</div>
-                    <div class="parks category-btns-outdoors">Parks</div>
-                    <div class="trails category-btns-outdoors">Trails</div>
-                </div>
+                <div class="done category-btns-main" id="doneBtn">Done Planning!</div>
+
             </div>
         </div>
 
@@ -143,6 +136,20 @@
         <div class="mapquest-container">
             <div id="restaurantList"></div>
             <div id="iceCreamList"></div>
+            <div id="donutList"></div>
+            <div id="activitiesList"></div>
+
+        </div>
+        <div class="itinerary-container">
+                <h1 id="finished">Here's what's on the agenda:</h1>
+                <div id="itinerary">
+        </div>
+
+        <div class="ticketmaster-container">
+            <div id="eventsList"></div>
+        </div>
+        
+
         </div>
         <!-- </div>
     </div> -->
