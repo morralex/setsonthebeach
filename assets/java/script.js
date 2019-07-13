@@ -30,6 +30,19 @@ $(document).ready(function () {
 })
 
 
+// ------------- BACK ARROW SCRIPT --------------
+
+$('#backArrowTwo').on('click',function(){
+    $('.main-container-p1').show();
+})
+$('#backArrowThree').on('click',function(){
+    $('.main-container-p2').show();
+    $('#backArrowTwo').show();
+})
+$('#backArrowFour').on('click',function(){
+    $('.main-container-p2').show();
+    $('#backArrowTwo').show();
+})
 
 
 var mainContainerCategories = $('.main-container-categories')
@@ -42,6 +55,7 @@ var doneBtn = $('#doneBtn');
 foodBtn.on('click', function () {
     $('.category-btns-main').hide();
     $('.food-toggle-wrapper').show();
+    $('#backArrowThree').hide();
 })
 activitiesBtn.on('click', function () {
     $('.category-btns-main').hide();
@@ -50,6 +64,8 @@ activitiesBtn.on('click', function () {
 eventsBtn.on('click', function () {
     $('.category-btns-main').hide();
     $('.events-toggle-wrapper').show();
+    $('#backArrowThree').hide();
+
 })
 doneBtn.on('click', function () {
     $('.category-btns-main').hide();
@@ -73,6 +89,7 @@ homeBtn.on('click', function () {
     $('.main-container-p1').hide();
     mainContainerP2.show();
     mapquestContainer.hide();
+    $('#backArrowOne').hide();
 
 })
 
@@ -84,7 +101,7 @@ searchLocationBtn.on('click', function () {
     console.log(userState)
     userRadius = $('#userRadius').val().trim();
     console.log(userRadius)
-
+    $('#backArrowTwo').hide();
     mainContainerP2.hide();
     $('.main-preference-wrapper').show();
     $('.select-preference-page').show();
@@ -626,30 +643,30 @@ fairsBtn.on('click', function () {
 //---------------- Ticketmaster API-------------//
 
 
-$("#eventsBtn").on("click", function () {
+// $("#eventsBtn").on("click", function () {
 
-    userCity = $('#userCity').val().trim();
-    console.log(userCity)
+//     userCity = $('#userCity').val().trim();
+//     console.log(userCity)
 
-    axios.get("https://app.ticketmaster.com/discovery/v2/events.json?city=" + userCity + "&apikey=63AhjiOX3qg0isIkjNClj7n4zzj0XsPl")
-        .then(function (response) {
-            for(var i=0; i<5; i++){
-            $("#eventsList").append(response.data._embedded.events[i].name + "<br>");
-            $("#eventsList").append(response.data._embedded.events[i].url + "<br>");
+//     axios.get("https://app.ticketmaster.com/discovery/v2/events.json?city=" + userCity + "&apikey=63AhjiOX3qg0isIkjNClj7n4zzj0XsPl")
+//         .then(function (response) {
+//             for(var i=0; i<5; i++){
+//             $("#eventsList").append(response.data._embedded.events[i].name + "<br>");
+//             $("#eventsList").append(response.data._embedded.events[i].url + "<br>");
 
-            var addButton = $("<button>");
-            addButton.addClass("addEvent");
-            addButton.attr("indexNum", i);
-            addButton.text("Add to Itinerary");
-            $("#eventsList").append(addButton);
-            $("#eventsList").append("<br>"  + "<br>");
-            }
-            console.log(response.data._embedded.events)
-            console.log(response.data._embedded.events[1].name)
-            //response.data._embedded.events[1].url;
-        })
+//             var addButton = $("<button>");
+//             addButton.addClass("addEvent");
+//             addButton.attr("indexNum", i);
+//             addButton.text("Add to Itinerary");
+//             $("#eventsList").append(addButton);
+//             $("#eventsList").append("<br>"  + "<br>");
+//             }
+//             console.log(response.data._embedded.events)
+//             console.log(response.data._embedded.events[1].name)
+//             //response.data._embedded.events[1].url;
+//         })
 
-})
+// })
 // function displayEvents() {
 //     userCity = $('#userCity').val().trim();
 //     console.log(userCity)
@@ -678,39 +695,76 @@ var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userC
 //mapquest api key: k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm
 //group sic codes: 
 //restaurant
-var restaurantsCode = 581208;
 
-//desssert
-var donutsCode = 546105;
-var iceCream = 581203;
-//var cafeCode = 581214;
+$("#locationSearchBtn").on("click", function () {
 
-//activities
-var karaokeCode = 581309;
-var barsCode = 581301;
-var bowlingCode = 793301;
-var parksCode = 799951;
-var museumCode = 841201;
-var beachCode = 901006;
-var animalShelterCode = 75203;
-var arcadeCode = 799303;
-var billiardCode = 799912;
-var aboretumCode = 842203;
-var danceClubCode = 869921;
-var aquariumCode = 842205;
+    userCity = $('#userCity').val().trim();
+    console.log(userCity)
+
+    axios.get("https://app.ticketmaster.com/discovery/v2/events.json?city=" + userCity + "&apikey=63AhjiOX3qg0isIkjNClj7n4zzj0XsPl")
+        .then(function (response) {
+
+            // console.log(response.data._embedded.events[0, ].name);
 
 
-var mapquestURL = "https://www.mapquestapi.com/search/v2/radius?origin=" + userCity + ",+" + userState + "&radius=" + userRadius + "&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|" + restaurantsCode + "&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm";
-var restaurantsCode = 581208;
-axios({
-    //url: "http://www.mapquestapi.com/search/v2/radius?key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm&maxMatches=4&origin=39.750307,-104.999472",
-    //url: mapquestURL,
-    url: "https://www.mapquestapi.com/search/v2/radius?origin=irvine,+ca&radius=10&maxMatches=5&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|581208&outFormat=json&key=k7p1YS52pNJs9TkBAFlr26nXS2EOKNGm",
-    method: "GET"
-}).then(function (response) {
-    console.log(response.data)
+            $('#eventsBtn').on('click', function () {
 
-        .catch(function (err) {
-            console.error(err)
+                var eventDiv = $('<div>');
+                console.log(response.data);
+                // for (var i = 0; i < response.data._embedded.events.length; i++) {
+                //     var eventList = response.data._embedded.events;
+
+                //     console.log(response.data._embedded.events[0].name)
+                //     var test = $('<div>')
+                //     eventDiv.append(response.data._embedded.events[0].name);
+
+                // }
+                
+
+                //console.log(response.data._embedded.events[0].images[0].url)
+                // var imgURL = response.data._embedded.events[0].images[2].url;
+                // var imgElem = $('.card-img-top-one').attr('src', imgURL)
+                // eventDiv.append(imgElem);
+                eventDiv.append(response.data._embedded.events[0].name);
+
+                $('.card-title-one').prepend(eventDiv)
+            })
+
+
+            
+            
+
+            $('#eventsBtn').on('click', function () {
+
+                var eventDiv = $('<div>');
+                console.log(response.data);
+
+                // var imgURL = response.data._embedded.events[4].images[2].url;
+                // var imgElem = $('.card-img-top-two').attr('src', imgURL)
+                // eventDiv.append(imgElem);
+                eventDiv.append(response.data._embedded.events[4].name);
+
+
+                $('.card-title-two').prepend(eventDiv)
+            })
+
+            $('#eventsBtn').on('click', function () {
+
+                var eventDiv = $('<div>');
+                console.log(response.data);
+
+                // var imgURL = response.data._embedded.events[8].images[2].url;
+                // var imgElem = $('.card-img-top-three').attr('src', imgURL)
+                // eventDiv.append(imgElem);
+                
+                eventDiv.append(response.data._embedded.events[8].name);
+
+
+                $('.card-title-three').prepend(eventDiv)
+            })
+
+            
         })
+
+  
 })

@@ -165,7 +165,22 @@
         
 
    }
+   .back-arrow{
+    color:white;
+    margin-left:2%;
+    
+   
+}
 
+.back-arrow-opacity{
+    margin-right:100%;
+    color:white;
+
+}
+.arrow-div{
+    color:white;
+    margin-right:90%;
+}
  
     .dot-1{
        display:none;
